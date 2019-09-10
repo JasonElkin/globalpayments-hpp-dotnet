@@ -4,6 +4,8 @@ image: Visual Studio 2019
 install:
   - choco install gitversion.portable --version 4.0.0 -y
 
+configuration: Release
+
 assembly_info:
   patch: false
 
@@ -15,6 +17,9 @@ build:
   verbosity: normal
 
 after_build:
-  - cmd: ECHO nuget pack Semantic.GlobalPayments.Hpp\Semantic.GlobalPayments.Hpp.nuspec -version "%GitVersion_NuGetVersion%" -prop "target=%CONFIGURATION%"
-  - cmd: nuget pack Semantic.GlobalPayments.Hpp\Semantic.GlobalPayments.Hpp.nuspec -version "%GitVersion_NuGetVersion%" -prop "target=%CONFIGURATION%"
-  - cmd: appveyor PushArtifact "Semantic.GlobalPayments.Hpp.%GitVersion_NuGetVersion%.nupkg"
+  - cmd: ECHO nuget pack Semantic.GlobalPayments.Hpp\Semantic.GlobalPayments.Hpp.csproj -version "%GitVersion_NuGetVersion%" -symbols -prop "configuration=%CONFIGURATION%"
+  - cmd: nuget pack Semantic.GlobalPayments.Hpp\Semantic.GlobalPayments.Hpp.csproj -version "%GitVersion_NuGetVersion%" -symbols -prop "configuration=%CONFIGURATION%"
+#  - cmd: appveyor PushArtifact "Semantic.GlobalPayments.Hpp.%GitVersion_NuGetVersion%.nupkg"
+
+artifacts:
+- path: '*.nupkg'
