@@ -2,7 +2,7 @@
 image: Visual Studio 2019
 
 install:
-  - choco install gitversion.portable -pre -y
+  - choco install gitversion.portable --version 4.0.0 -y
 
 assembly_info:
   patch: false
