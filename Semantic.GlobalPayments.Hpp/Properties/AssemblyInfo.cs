@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Semantic.GlobalPayments.Hpp")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("GlobalPayments .NET HPP Library")]
+[assembly: AssemblyDescription("Library for creating the JSON used by the GlobalPayments HPP JavaScript SDK and for parsing the subsequent responses")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Semantic.GlobalPayments.Hpp")]
+[assembly: AssemblyCompany("Semantic Limited")]
+[assembly: AssemblyProduct("")]
 [assembly: AssemblyCopyright("Copyright © Semantic Limted 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -30,5 +30,4 @@ using System.Runtime.InteropServices;
 //      Revision
 //
 // You can specify all the values or you can default the Build and Revision Numbers
-// by using the '*' as shown below:
-// [assembly: AssemblyVersion("1.0.*")]
+
