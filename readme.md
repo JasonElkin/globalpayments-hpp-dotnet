@@ -13,3 +13,7 @@ You should take a look the [official .NET SDK](https://github.com/globalpayments
 Firstly, history. This library started out before the official .NET SDK existed and was reverse engineered from the old PHP SDK.
 
 Secondly, compatibility. The official .NET SDK has some dependencies that we can't use in certain projects at Semantic.
+
+## 3D Secure v2
+
+This library is for [Version 2 of the HPP API](https://developer.globalpay.com/#!/ecommerce/3d-secure-version2) which supports 3D Secure v2, but this has not yet been tested in production (hence this is an RC).
