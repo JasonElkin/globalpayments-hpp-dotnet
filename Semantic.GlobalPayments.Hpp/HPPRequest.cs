@@ -139,4 +139,3 @@ namespace Semantic.GlobalPayments.Hpp
         }
     }
 }
-
