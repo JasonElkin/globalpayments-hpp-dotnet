@@ -8,10 +8,10 @@ namespace Semantic.GlobalPayments.Hpp
     {
         public override bool CanConvert(Type objectType)
         {
-
             return objectType == typeof(string) ||
                    objectType.IsEnum ||
-                   objectType == typeof(bool);
+                   objectType == typeof(bool) ||
+                   objectType == typeof(int?);
         }
 
         public override bool CanRead => true;
@@ -22,7 +22,7 @@ namespace Semantic.GlobalPayments.Hpp
             object value = null;
             string stringValue = Encoding.UTF8.GetString(Convert.FromBase64String((string)reader.Value));
 
-            if(objectType == typeof(string))
+            if (objectType == typeof(string))
             {
                 return stringValue;
             }
@@ -34,6 +34,14 @@ namespace Semantic.GlobalPayments.Hpp
             else if (objectType == typeof(bool))
             {
                 value = bool.Parse(stringValue);
+            }
+
+            if (objectType == typeof(int?))
+            {
+                if (int.TryParse(stringValue, out int parsed))
+                {
+                    value = parsed;
+                }
             }
 
             return value;
@@ -50,6 +58,10 @@ namespace Semantic.GlobalPayments.Hpp
             else if (valueType == typeof(bool))
             {
                 value = ((bool)value).ToString();
+            }
+            else if (valueType == typeof(int?))
+            {
+                value = value.ToString();
             }
 
             writer.WriteValue(Convert.ToBase64String(Encoding.UTF8.GetBytes((string)value)));
